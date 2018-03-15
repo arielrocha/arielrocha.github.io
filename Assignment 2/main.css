@@ -1,0 +1,90 @@
+body{
+    font-family: sans-serif;
+    background-color: white;
+    border: 4px solid black; 
+    box-shadow: 1px 10px 20px 10px black;
+    width: 800px;
+    border-color: black;
+    display: table-cell;
+    vertical-align: middle;
+}
+ 
+html{
+    display: table;
+    margin: auto;
+    background-image: url(images/bats.gif);
+    background-repeat: repeat;
+}
+
+h1::first-letter{
+    font-size: 250%;
+}
+
+#description{
+    position: relative;
+    bottom: 30px; 
+    font-size: 150%
+}
+
+#title{
+    margin-top: 0;
+    border-bottom: 2px
+    text-indent: 12px;
+    font-size: 250%;
+}
+
+#header{
+    height: 70px;
+    line-height: 50x;
+    padding: 10px;
+    background-image: -webkit-linear-gradient(45deg, white 10%, orange 50%, black 100%);
+    background-image: -moz-linear-gradient(45deg, white 10%, orange 50%, black 100%);
+    background-image: -ms-linear-gradient(45deg, white 10%, orange 50%, black 100%);
+    background-image: -o-linear-gradient(45deg, white 10%, orange 50%, black 100%);
+    background-image: linear-gradient(45deg, white 10%, orange 50%, black 100%);
+    border-bottom: 3px solid black;
+}
+#footer{
+    clear: both;
+    margin-bottom: 0;
+    background-image: -webkit-linear-gradient(45deg, black 10%, orange 50%, white 100%);
+    background-image: -ms-linear-gradient(45deg, black 10%, orange 50%, white 100%);
+    background-image: -moz-linear-gradient(45deg, black 10%, orange 50%, white 100%);
+    background-image: -o-linear-gradient(45deg, black 10%, orange 50%, white 100%);
+    background-image: linear-gradient(45deg, black 10%, orange 50%, white 100%);
+    
+    border-top: 3px solid black; 
+    padding-top: 19px;
+    padding-bottom: 15px;
+    text-align: center
+}
+
+section{
+    width: 560px;
+    float:right;
+    padding: 1px 70px 20px 5px;
+    
+}
+
+aside{
+    float: left;
+    width: 160px;
+    padding: 20px 0;
+}
+#list{
+    font-weight: bold;
+    color: orange;   
+}
+
+#bullet{
+    margin: 0 0 5px 0;
+}
+
+#list:hover{
+    color: green;
+}
+
+div.img{ 
+    float: left
+     
+}
