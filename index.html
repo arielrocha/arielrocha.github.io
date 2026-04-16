@@ -3,20 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Workout Tracker</title>
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Workout Tracker AI</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="images/favicon.ico" />
   <link rel="stylesheet" href="normalize.css" />
   <link rel="stylesheet" href="main.css" />
 </head>
 <body>
   <div class="app-shell">
     <header class="app-header">
-      <h1>Workout Tracker</h1>
-      <p>Log workouts, track progress, and keep your history locally in your browser.</p>
+      <h1>Workout Tracker AI</h1>
+      <p>Upload files, organize workouts, and get simple AI-style coaching in one place.</p>
     </header>
 
     <main class="layout">
       <section class="card">
-        <h2>Add Workout</h2>
+        <h2>1) Upload workout document/spreadsheet</h2>
+        <p class="helper">Supported: CSV, TSV, TXT, JSON, XLSX. We map common columns like exercise, sets, reps, weight, and notes automatically.</p>
+        <div class="inline-controls">
+          <input type="file" id="import-file" accept=".csv,.tsv,.txt,.json,.xlsx,.xls" />
+          <button id="import-button" class="primary" type="button">Import File</button>
+        </div>
+        <p id="import-result" class="helper"></p>
+      </section>
+
+      <section class="card">
+        <h2>2) Add workout manually</h2>
         <form id="workout-form" class="form-grid">
           <label>
             Date
@@ -38,6 +53,11 @@
           <label>
             Exercise
             <input type="text" id="exercise" placeholder="e.g., Bench Press" required />
+          </label>
+
+          <label>
+            Description / Explanation
+            <input type="text" id="description" placeholder="e.g., Chest press with barbell" />
           </label>
 
           <label>
@@ -71,7 +91,7 @@
 
       <section class="card">
         <div class="toolbar">
-          <h2>History</h2>
+          <h2>3) Easy tracking dashboard</h2>
           <div class="toolbar-controls">
             <label>
               Filter by Type
@@ -93,9 +113,24 @@
         <ul id="workout-list" class="workout-list"></ul>
         <p id="empty-state" class="empty-state">No workouts logged yet.</p>
       </section>
+
+      <section class="card">
+        <h2>4) Simple AI coach</h2>
+        <p class="helper">Ask questions like: “Summarize this week”, “How can I improve bench press?”, or “Suggest tomorrow's plan.”</p>
+
+        <div id="ai-chat" class="chat-box">
+          <div class="chat-row bot">Hi! I can summarize your logged workouts and give simple next-step suggestions.</div>
+        </div>
+
+        <div class="inline-controls">
+          <input id="ai-input" type="text" placeholder="Ask your workout question..." />
+          <button id="ai-send" class="primary" type="button">Ask AI</button>
+        </div>
+      </section>
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
