@@ -1,90 +1,277 @@
-body{
-    font-family: sans-serif;
-    background-color: white;
-    border: 4px solid black; 
-    box-shadow: 1px 10px 20px 10px black;
-    width: 800px;
-    border-color: black;
-    display: table-cell;
-    vertical-align: middle;
-}
- 
-html{
-    display: table;
-    margin: auto;
-    background-image: url(images/bats.gif);
-    background-repeat: repeat;
+:root {
+  color-scheme: light;
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --border: #d1d5db;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-h1::first-letter{
-    font-size: 250%;
+* {
+  box-sizing: border-box;
 }
 
-#description{
-    position: relative;
-    bottom: 30px; 
-    font-size: 150%
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #eff6ff, var(--bg));
+  color: var(--text);
 }
 
-#title{
-    margin-top: 0;
-    border-bottom: 2px
-    text-indent: 12px;
-    font-size: 250%;
+.app-shell {
+  max-width: 1180px;
+  margin: 1rem auto 2rem;
+  padding: 0 0.8rem;
 }
 
-#header{
-    height: 70px;
-    line-height: 50x;
-    padding: 10px;
-    background-image: -webkit-linear-gradient(45deg, white 10%, orange 50%, black 100%);
-    background-image: -moz-linear-gradient(45deg, white 10%, orange 50%, black 100%);
-    background-image: -ms-linear-gradient(45deg, white 10%, orange 50%, black 100%);
-    background-image: -o-linear-gradient(45deg, white 10%, orange 50%, black 100%);
-    background-image: linear-gradient(45deg, white 10%, orange 50%, black 100%);
-    border-bottom: 3px solid black;
-}
-#footer{
-    clear: both;
-    margin-bottom: 0;
-    background-image: -webkit-linear-gradient(45deg, black 10%, orange 50%, white 100%);
-    background-image: -ms-linear-gradient(45deg, black 10%, orange 50%, white 100%);
-    background-image: -moz-linear-gradient(45deg, black 10%, orange 50%, white 100%);
-    background-image: -o-linear-gradient(45deg, black 10%, orange 50%, white 100%);
-    background-image: linear-gradient(45deg, black 10%, orange 50%, white 100%);
-    
-    border-top: 3px solid black; 
-    padding-top: 19px;
-    padding-bottom: 15px;
-    text-align: center
+.app-header {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-section{
-    width: 560px;
-    float:right;
-    padding: 1px 70px 20px 5px;
-    
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
 }
 
-aside{
-    float: left;
-    width: 160px;
-    padding: 20px 0;
-}
-#list{
-    font-weight: bold;
-    color: orange;   
+.app-header p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
 }
 
-#bullet{
-    margin: 0 0 5px 0;
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
 }
 
-#list:hover{
-    color: green;
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
 }
 
-div.img{ 
-    float: left
-     
+.card h2 {
+  margin-top: 0;
+}
+
+.helper {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.form-grid,
+label {
+  display: grid;
+  gap: 0.55rem;
+}
+
+label {
+  font-size: 0.94rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.7rem;
+  background-color: #fff;
+  min-height: 42px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #bfdbfe;
+  border-color: var(--primary);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 42px;
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--primary-hover);
+}
+
+.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.danger:hover {
+  background: var(--danger-hover);
+}
+
+.inline-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(72px, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.stat {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.workout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.workout-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.workout-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #1e3a8a;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.meta,
+.notes,
+.description {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  color: var(--muted);
+  margin: 1rem 0 0;
+}
+
+.small-btn {
+  justify-self: end;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.85rem;
+  min-height: auto;
+}
+
+.chat-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem;
+  min-height: 140px;
+  max-height: 260px;
+  overflow: auto;
+  background: #fafafa;
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.7rem 0;
+}
+
+.chat-row {
+  padding: 0.55rem 0.65rem;
+  border-radius: 9px;
+  max-width: 92%;
+}
+
+.chat-row.user {
+  background: #dbeafe;
+  justify-self: end;
+}
+
+.chat-row.bot {
+  background: #e5e7eb;
+  justify-self: start;
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(90px, 1fr));
+  }
+
+  .toolbar,
+  .toolbar-controls,
+  .inline-controls {
+    align-items: stretch;
+  }
+
+  .inline-controls input,
+  .inline-controls button {
+    width: 100%;
+  }
 }
