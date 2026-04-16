@@ -1,62 +1,101 @@
-<!-- Ariel Rocha PROG1247 7850506 February, 11th, 2018 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
-	<meta charset="utf-8" />
-    <link rel="stylesheet"
-          type="text/css" href="main.css">
-	<title>The Halloween Store</title>
-    <link rel="stylesheet"
-          type="text/css" href="normalize.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="main.css" />
 </head>
 <body>
-    <header id = "header">
-    <div class = "img">
-        <img src = "images/pumpkin.gif" alt ="Pumpkin">
-    </div>
-    <h2 id="title">The Halloween Store</h2>
-    <h3 id="description">For the little goblin in all of us!</h3>
-</header>
-    <main>
-    <section>
-    <h1>Welcome to my site.<br>Please come in and stay awhile.</h1>
-    
-    <p>I started this website because Halloween has always been my favorite holiday. But during the last year, I started selling some of my favorite Halloween products, and they've become quite a hit.<br>
-    <br>
-    If you click on the Personal link, you can browse my favorite Halloween pictures, stories, and films. And if you join my email list, I will keep you up-to-date on all things Halloween.</p>
-        <h2>Product of the week</h2>
-        <img src = "images/cat1.jpg" alt = "demented Cat">
-        <p><a href = "cat.html"><strong> <font color = orange>20" Deranged cat</font></strong></a></p>
-         <h3 id = "Gaurntee">My guarantee</h3>
-        
-    <p>If you aren't completely satisfied with everything you buy from my site, you can return it for a full refund.<strong> No questions asked!</strong>
-    </p>
-    
-     </section>
-   
-        
-    
-    <!-- id ="bullet" selects bullet points and i am able to modify in CSS -->
-    
-   <aside>
-       <nav id = "Left">
-    <ul >
-        
-        <li id ="bullet"><a id="list" href="props.html"> Props</a></li>
-        <li id ="bullet" ><a id="list" href="Costumes.html"> Costumes</a></li>
-        <li id ="bullet"><a id="list" href="Special Effects.html"> Special FX</a></li>
-        <li id ="bullet"><a id="list" href="Masks.html"> Masks</a></li>
-        
-    </ul>
-           </nav>
-        </aside>
-        </main>
-       <footer>
-    <p id ="footer">&copy; 2016 Ben Murach</p>
-   </footer>
-   
-    
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>Workout Tracker</h1>
+      <p>Log workouts, track progress, and keep your history locally in your browser.</p>
+    </header>
+
+    <main class="layout">
+      <section class="card">
+        <h2>Add Workout</h2>
+        <form id="workout-form" class="form-grid">
+          <label>
+            Date
+            <input type="date" id="date" required />
+          </label>
+
+          <label>
+            Workout Type
+            <select id="type" required>
+              <option value="">Select type...</option>
+              <option value="Strength">Strength</option>
+              <option value="Cardio">Cardio</option>
+              <option value="Mobility">Mobility</option>
+              <option value="Sport">Sport</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            Exercise
+            <input type="text" id="exercise" placeholder="e.g., Bench Press" required />
+          </label>
+
+          <label>
+            Sets
+            <input type="number" id="sets" min="0" step="1" placeholder="e.g., 4" />
+          </label>
+
+          <label>
+            Reps
+            <input type="number" id="reps" min="0" step="1" placeholder="e.g., 8" />
+          </label>
+
+          <label>
+            Weight (lb)
+            <input type="number" id="weight" min="0" step="1" placeholder="e.g., 135" />
+          </label>
+
+          <label>
+            Duration (min)
+            <input type="number" id="duration" min="0" step="1" placeholder="e.g., 30" />
+          </label>
+
+          <label class="full-width">
+            Notes
+            <textarea id="notes" rows="3" placeholder="How did it feel? Any PRs?"></textarea>
+          </label>
+
+          <button type="submit" class="primary">Save Workout</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="toolbar">
+          <h2>History</h2>
+          <div class="toolbar-controls">
+            <label>
+              Filter by Type
+              <select id="filter-type">
+                <option value="all">All</option>
+                <option value="Strength">Strength</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Mobility">Mobility</option>
+                <option value="Sport">Sport</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <button id="clear-all" class="danger" type="button">Clear All</button>
+          </div>
+        </div>
+
+        <div class="stats" id="stats"></div>
+
+        <ul id="workout-list" class="workout-list"></ul>
+        <p id="empty-state" class="empty-state">No workouts logged yet.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
 </body>
-    
 </html>
